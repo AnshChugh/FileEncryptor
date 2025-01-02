@@ -46,12 +46,15 @@ target_compile_options(File_Encryptor PRIVATE
     -Wall
     -Wextra
     -Wpedantic
-    -O2
+    -O0 # Disable optimization for debugging
+    -g # include debug symbols
 )
 
 target_compile_options(Cryption PRIVATE
     -Wall
     -Wextra
     -Wpedantic
-    -O2
+    -O0
+    -g
+
 )
