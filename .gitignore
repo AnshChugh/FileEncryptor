@@ -1,0 +1,6 @@
+build/
+.vscode/
+# test directory to perform encryption/decryption
+test/
+#key file to use for encryption 
+.env
