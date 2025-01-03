@@ -17,7 +17,7 @@ struct Task
     Action action;
     Task(std::fstream &&stream, Action act, std::string file_path) : f_stream(std::move(stream)), file_path(file_path), action(act) {};
 
-    std::string toString()
+    std::string toString() const
     {
         std::ostringstream oss;
 
@@ -54,7 +54,7 @@ struct Task
         }
         else
         {
-            throw std::runtime_error("Error in Task data: " + taskData);
+            throw std::runtime_error("Error what: " + taskData);
         }
     }
 };

@@ -4,3 +4,6 @@ build/
 test/
 #key file to use for encryption 
 .env
+
+# all the exaclidraw files. jpg images are sufficient
+*.excalidraw

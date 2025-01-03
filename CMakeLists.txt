@@ -56,5 +56,13 @@ target_compile_options(Cryption PRIVATE
     -Wpedantic
     -O0
     -g
-
 )
+
+# Custom clean target
+add_custom_target(cleanit
+    COMMAND ${CMAKE_COMMAND} -P ${CMAKE_BINARY_DIR}/cmake_clean.cmake
+    COMMAND ${CMAKE_COMMAND} -E remove_directory ${CMAKE_BINARY_DIR}
+    COMMENT "Cleaning up build directory"
+)
+
+
