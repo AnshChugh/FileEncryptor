@@ -1,0 +1,4 @@
+Params: reducing some std cout output in multiprocessing to mitigate bias
+[MultiThreading] 60 files random 150 characters
+    -- run 1: Encrypt: 0.04008s, Decrypt: 0.029285
+    -- run 2: Encrypt: 0.03056s, Decrypt: 0.020772

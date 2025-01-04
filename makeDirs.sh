@@ -12,8 +12,8 @@ create_test_directory() {
     for ((i=1; i<=num_files; i++)); do
         file_name="file_$i.txt"
         file_path="$directory_name/$file_name"
-        tr -dc 'A-Za-z0-9' < /dev/urandom | head -c 100 > "$file_path"
+        tr -dc 'A-Za-z0-9' < /dev/urandom | head -c 150 > "$file_path"
     done
 }
 
-create_test_directory "test" 10
+create_test_directory "test" 60

@@ -9,11 +9,26 @@ int main(int argc, char *argv[])
 {
   std::string directory;
   std::string action;
-  std::cout << "Enter directory path: " << std::endl;
-  std::getline(std::cin, directory);
+  if (argc == 0)
+  {
+    std::cout << "Enter directory path: " << std::endl;
+    std::getline(std::cin, directory);
 
-  std::cout << "Enter the action (encrypt/decrypt): " << std::endl;
-  std::getline(std::cin, action);
+    std::cout << "Enter the action (encrypt/decrypt): " << std::endl;
+    std::getline(std::cin, action);
+  }
+  else if (argc == 2)
+  {
+    directory = argv[0];
+    action = argv[1];
+    std::cout << "Directory: " << directory << std::endl;
+    std::cout << "Action: " << action << std::endl;
+  }
+  else
+  {
+    std::cout << "Invalid number of arguments, usage: ./program or ./program <directory> <action>" << std::endl;
+    return 1;
+  }
 
   if (action != "encrypt" && action != "decrypt")
   {
@@ -60,4 +75,5 @@ int main(int argc, char *argv[])
   {
     std::cout << "new Error: " << ex.what() << std::endl;
   }
+  return 0;
 }

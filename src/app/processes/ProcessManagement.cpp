@@ -4,7 +4,7 @@
 #include <sys/mman.h>
 #include <sys/stat.h>
 #include <sys/fcntl.h>
-
+#include <thread>
 #include <cstring>
 #include "../Crypto/Crypto.hpp"
 #include <atomic>
@@ -41,23 +41,8 @@ bool ProcessManagement::submitToQueue(std::unique_ptr<Task> task)
     lock.unlock();
     sem_post(itemSemaphore);
 
-    int pid = fork();
-    if (pid < 0)
-    {
-        return false;
-    }
-    else if (pid == 0)
-    {
-        std::cout << "Entering the parent process\n";
-    }
-    else
-    {
-        std::cout << "Entering the child process\n";
-        executeTasks();
-        std::cout << "Exiting the child process\n";
-        exit(0);
-    }
-
+    std::thread taskThread(&ProcessManagement::executeTasks, this);
+    taskThread.detach();
     return true;
 }
 
